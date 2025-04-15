@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fullstack eCommerce Project (Next.js + PostgreSQL + Prisma + Docker)
 
-## Getting Started
+This is a fullstack eCommerce app built with:
+- Next.js (App Router)
+- PostgreSQL (as the database)
+- Prisma (as the ORM)
+- Docker & Docker Compose (for environment setup)
+- Seed data for testing
+- MercadoPago integration for payments
 
-First, run the development server:
+### 🔄 How it works 
 
-```bash
+- We have a **DAO layer** (in `lib/dao/`) that talks directly to the database using Prisma.
+- When we need to get data (like products, users, etc.), we first create a function in DAO, like `getAllProducts()`.
+- That DAO function gets used in **server actions** or **route handlers**, depending on what we need.
+- The frontend (React/Next.js pages and components) then calls those server functions and gets the data via props or async functions.
+- The components just render what they get. Nothing fancy, straight to the point.
+
+### 🧠 Example flow
+
+Let’s say we want to show all products:
+
+1. DAO: We make `getAllProducts()` in `lib/dao/product.ts`
+2. In a page or layout file (e.g. `app/products/page.tsx`), we call it with `await getAllProducts()`
+3. We pass that to the component as props, like `<ProductList products={products} />`
+4. Done. It renders them.
+
+Same for users, carts, orders, etc. Always:
+`DB → DAO → Server Action → Component → Props`
+
+That’s it. Easy to extend and modify.
+
+## Getting Started --
+
+### 1. Clone the project and navigate into the folder
+
+git clone https://github.com/your-user/your-repo.git
+cd sport
+
+### 2. Install dependencies
+
+npm install
+
+### 3. Start Docker containers
+
+This will start both the PostgreSQL container and the Next.js app:
+docker-compose up -d --build
+
+### 4. Confirm containers are running
+
+docker ps
+You should see ecommerce_db (PostgreSQL) and sport_app (the app) running.
+
+### Connecting to the PostgreSQL terminal (optional)
+
+If you want to access the DataBase directly:
+docker exec -it ecommerce_db psql -U ecommerce_user -d ecommerce_db
+
+### Prisma Setup --
+
+### 5. Apply database migrations
+
+This sets up the database schema:
+npx prisma migrate dev --name init
+
+### 6 Run the seed script (populate database)
+
+npx prisma db seed
+### 7 Open Prisma Studio (visual DB interface)
+
+npx prisma studio
+
+### Running the Development Server
+
+### Start the Next.js app locally:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Then visit http://localhost:3000 in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Project Files --
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+app/page.tsx: Homepage of the app
+prisma/schema.prisma: Database schema
+prisma/seed.ts: Seed script to populate data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+###  Payments
 
-## Learn More
+MercadoPago 
+The flow for generating payment preferences is being developed
 
-To learn more about Next.js, take a look at the following resources:
+###  Useful Docs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js https://nextjs.org/docs
+Prisma https://www.prisma.io/docs
+Docker Documentation
+PostgreSQL https://www.postgresql.org/docs/
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Deployment
 
-## Deploy on Vercel
+You can deploy this project to Vercel easily.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+###  Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you're collaborating on this project, make sure Docker is running and follow all the steps above. Feel free to fork, pull request, and give feedback!
+
+Made by Franco Seiler.

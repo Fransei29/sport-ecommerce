@@ -1,0 +1,81 @@
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  max-width: 1250px;
+  margin-inline: auto;
+  margin-top: 3rem;
+  background-color: transparent;
+  border: 1px solid var(--secondary);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkoutTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--text)
+}
+
+.cartEmpty {
+  font-size: 1.2rem;
+  color: #666;
+  a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.cartList {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cartItem {
+  background: transparent;
+  border: 1px solid var(--secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+  h2 {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #777;
+  }
+}
+
+.checkoutTotal {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--text)
+}
+
+.loadingText {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.walletContainer {
+  margin:0
+}
