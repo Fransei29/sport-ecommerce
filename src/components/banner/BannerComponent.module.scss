@@ -33,6 +33,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
     &:hover{
       background-color: var(--secondary-1);
