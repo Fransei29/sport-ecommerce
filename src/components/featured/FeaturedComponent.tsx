@@ -15,7 +15,7 @@ interface Product {
 }
 
 async function getFeaturedProducts(): Promise<Product[]> { 
-  const res = await fetch("http://localhost:3000/api/products");
+  const res = await fetch("/api/products");
   if (!res.ok) return [];
   return res.json();
 }
