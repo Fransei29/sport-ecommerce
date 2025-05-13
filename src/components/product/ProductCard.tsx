@@ -20,7 +20,7 @@ export default function ProductCard({ product, showAddToCartButton = true }: Pro
 
   async function handleAddToCart() {
     setLoading(true);
-    await fetch("http://localhost:3000/api/cart", {
+    await fetch("/api/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId: "123", productId: product.id, quantity: 1 }),
