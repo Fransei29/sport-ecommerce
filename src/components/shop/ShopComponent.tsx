@@ -1,7 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./ShopComponent.module.scss";
-import ProductCard from "../../components/product/ProductCard"; // Importamos el nuevo componente
+import dynamic from "next/dynamic";
+
+// Importación dinámica para ProductCard, si es un componente pesado
+const ProductCard = dynamic(() => import("../../components/product/ProductCard"), {
+  loading: () => <p>Cargando producto...</p>,
+  ssr: false,
+});
 
 interface Product {
   id: string;
@@ -10,14 +16,14 @@ interface Product {
   image: string;
 }
 
-// Funcion para obtener los productos de la tienda
+// Función para obtener los productos de la tienda
 async function getProducts(): Promise<Product[]> {
   const res = await fetch("http://localhost:3000/api/products");
   if (!res.ok) throw new Error("Error fetching products");
   return res.json();
 }
 
-// Funcion principal de la pagina de la tienda
+// Función principal de la página de la tienda
 export default function ShopComponent() {
   const [products, setProducts] = useState<Product[]>([]);
 

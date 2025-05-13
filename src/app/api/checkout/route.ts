@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { OrderDAO } from "@/models/OrderDAO";
 
 
-export async function POST(req: Request) {
+export async function POST() {
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ error: "No autenticado" }, { status: 401 });

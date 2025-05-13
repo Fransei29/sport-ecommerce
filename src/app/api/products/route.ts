@@ -7,6 +7,7 @@ export async function GET() {
     const products = await ProductDAO.getAllProducts();
     return NextResponse.json(products);
   } catch (error) {
-    return NextResponse.json({ error: "Error fetching products" }, { status: 500 });
+    console.error("Error al obtener productos destacados:", error);
+    return NextResponse.json({ error: "Error al obtener productos destacados" }, { status: 500 });
   }
-}
+}  

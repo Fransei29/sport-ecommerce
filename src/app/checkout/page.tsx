@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { Wallet } from "@mercadopago/sdk-react";
-import { useRouter } from "next/navigation";
 import { initializeMercadoPago } from "@/lib/mercadopago-client"; 
 import styles from './CheckoutPage.module.scss'
 
@@ -23,14 +22,13 @@ interface CartData {
 }
 
 export default function CheckoutPage() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const userId = session?.user?.id;
-  const router = useRouter();
   const [cart, setCart] = useState<CartData>({ items: [] });
   const [preferenceId, setPreferenceId] = useState<string | null>(null);
   const [isMPInitialized, setIsMPInitialized] = useState(false);
 
-  // 🔥 1. Inicializamos Mercado Pago en el useEffect
+  // Inicializamos Mercado Pago en el useEffect
   useEffect(() => {
     const publicKey = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY;
     if (!publicKey) {
@@ -41,7 +39,7 @@ export default function CheckoutPage() {
     setIsMPInitialized(true);
   }, []);
 
-  // 🔥 2. Esperamos la inicialización antes de crear el pago
+  // Esperamos la inicialización antes de crear el pago
   useEffect(() => {
     if (userId && isMPInitialized) {
       createPayment();

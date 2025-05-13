@@ -12,9 +12,10 @@ interface Product {
 
 interface ProductCardProps {
   product: Product;
+  showAddToCartButton?: boolean; 
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, showAddToCartButton = true }: ProductCardProps) {
   const [loading, setLoading] = useState(false);
 
   async function handleAddToCart() {
@@ -41,11 +42,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           <h2 className={styles.productTitle}>{product.name}</h2>
           <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
         </div>
-        <div className={styles.productInfoB}>
-          <button className={styles.addToCartButton} onClick={handleAddToCart} disabled={loading}>
-           {loading ? "Agregando..." : "Agregar al carrito"}
-          </button>
-        </div>
+
+        {showAddToCartButton && ( // 👈 solo se muestra si es true
+          <div className={styles.productInfoB}>
+            <button className={styles.addToCartButton} onClick={handleAddToCart} disabled={loading}>
+              {loading ? "Agregando..." : "Agregar al carrito"}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

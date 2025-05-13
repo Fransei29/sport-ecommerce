@@ -16,6 +16,34 @@ This is a fullstack eCommerce app built with:
 - The frontend (React/Next.js pages and components) then calls those server functions and gets the data via props or async functions.
 - The components just render what they get. Nothing fancy, straight to the point.
 
+### 💳 Payments — Mercado Pago Integration
+
+Esta app tiene integración con Mercado Pago para pagos.
+
+#### ✅ ¿Cómo funciona el flujo de pago?
+
+1. Cuando el usuario llega al checkout, se crea una preferencia de pago en `/api/payment`.
+2. Esa preferencia contiene los productos del carrito y la info del usuario.
+3. Mercado Pago redirige al usuario a una de las siguientes URLs según el resultado:
+   - `success`: el pago fue aprobado.
+   - `failure`: el pago falló.
+   - `pending`: el pago quedó pendiente.
+
+#### ⚙️ Variables de entorno necesarias
+
+Asegurate de tener estas en tu archivo `.env.local`:
+
+```env
+NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY=TU_PUBLIC_KEY
+MERCADOPAGO_ACCESS_TOKEN=TU_ACCESS_TOKEN
+MERCADOPAGO_BASE_URL=https://tu-url-publica.com
+
+npx ngrok http 3000
+
+Luego actualizá MERCADOPAGO_BASE_URL con la URL de ngrok 
+(ej. https://45ff-190-120-124-251.ngrok-free.app)
+```
+
 ### 🧠 Example flow
 
 Let’s say we want to show all products:
@@ -60,6 +88,8 @@ docker exec -it ecommerce_db psql -U ecommerce_user -d ecommerce_db
 
 ### 5. Apply database migrations
 
+Make Sure you have the .env file done.
+
 This sets up the database schema:
 npx prisma migrate dev --name init
 
@@ -98,6 +128,11 @@ PostgreSQL https://www.postgresql.org/docs/
 ### Deployment
 
 You can deploy this project to Vercel easily.
+
+### Test
+
+You can test this project by running 'npm test'
+Using Jest
 
 ###  Contributing
 

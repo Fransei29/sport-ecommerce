@@ -1,0 +1,16 @@
+// utils/_mixins.scss
+@mixin section-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  min-height: calc(100svh - 80px); // svh es más seguro en móviles modernos
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+    justify-content: flex-start; // para evitar centrado forzado en móviles
+    min-height: auto; // deja que crezca naturalmente si es necesario
+  }
+}

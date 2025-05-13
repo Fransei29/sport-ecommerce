@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 }
 
 // Funcion para obtener el carrito de un usuario
-export async function GET(req: Request) {
+export async function GET() {
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ error: "No autenticado" }, { status: 401 });
@@ -34,7 +34,7 @@ export async function GET(req: Request) {
 }
 
 // Funcion para vaciar el carrito de un usuario
-export async function DELETE(req: Request) {
+export async function DELETE() {
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ error: "No autenticado" }, { status: 401 });

@@ -4,12 +4,13 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
   max-width: 1250px;
   margin-inline: auto;
-  margin-top: 3rem;
+  margin-top: 7rem;
+  margin-bottom: 2rem;
   background-color: transparent;
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--primary);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -43,7 +44,7 @@
 
 .cartItem {
   background: transparent;
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--primary);
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

@@ -1,33 +1,53 @@
 .productCard {
-    background: transparent;
-    border-radius: 4px;
+    background: rgba(241, 240, 240, 0.9);
+    border-radius: 2px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid  rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+    height: 480px;
+    width: 100%;
+    min-width: 270px;
+    max-width: 270px;
     display: flex;
     flex-direction: column;
     text-align: center;
+    transition: box-shadow 0.3s;
 
-    .productTitle{
-        font-size: 1.1rem;
-        color: var(--text);
-        padding: 4px 2px;
+    &:hover {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .productPrice{
-        font-size: 0.9rem;
-        color: var(--text);
-        padding: 5px 2px;
+    &:hover .productImage {
+        transform: scale(1.1);
+    }
+
+    .productTitle {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-light);
+        padding: 2px 2px;
+        min-height: 3.5rem;
+        text-align: left;
+    }
+
+    .productPrice {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--gray-5);
+        padding: 2px 2px;
+        margin-bottom: 1rem;
     }
     
     .productImage {
         width: 100%;
-        height: 400px;
-        object-fit: cover; 
+        height: 300px;
+        object-fit: cover;
+        border-bottom: 1px solid #eee;
+        transition: transform 0.3s ease-in-out;
     }
     
     .productInfo {
-        padding: 10px;
+        padding: 0.7rem 0.5rem;
     }
 
     .productInfoA {
@@ -35,33 +55,31 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        gap: 8px;
     }
 
     .productInfoB {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 8px;
     }
     
     .addToCartButton {
-        border: 2px solid var(--secondary);
-        background: transparent;
-        color: var(--text);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+        border: none;
+        background: var(--primary);
+        color: #fff;
         font-size: 1rem;
-        padding: 12px 25px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        margin: 1.2rem;
+        font-weight: 500;
+        padding: 14px 24px;
         border-radius: 4px;
         cursor: pointer;
-        transition: background 0.3s;
+        transition: background 0.3s, transform 0.2s;
     }
     
     .addToCartButton:hover {
-        background: var(--secondary-1);
-    }
-    
-    .addToCartButton:disabled {
-        background: #ccc;
-        cursor: not-allowed;
+        background: var(--primary-light);
+        color: var(--text);
     }
 }

@@ -5,3 +5,5 @@ export function getMercadoPagoClient() {
     accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN!,
   });
 }
+
+export { Preference };

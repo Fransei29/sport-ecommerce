@@ -7,6 +7,7 @@ export async function GET() {
     const products = await ProductDAO.getFeaturedProducts();
     return NextResponse.json(products);
   } catch (error) {
+    console.error("Error al obtener productos destacados:", error);
     return NextResponse.json({ error: "Error al obtener productos destacados" }, { status: 500 });
   }
-}
+}  
