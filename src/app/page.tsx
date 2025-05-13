@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import styles from "./home.module.scss";
 import Banner from "@/components/banner/BannerComponent";
