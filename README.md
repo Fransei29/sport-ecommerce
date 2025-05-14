@@ -1,12 +1,30 @@
-# Fullstack eCommerce Project (Next.js + PostgreSQL + Prisma + Docker)
+# 🛍️ Fullstack eCommerce App with Next.js, PostgreSQL, Prisma & Mercado Pago
 
-This is a fullstack eCommerce app built with:
+## 🔗 Live Demo
+
+👉 https://sport-ecommerce-58pi.vercel.app/
+
+A complete eCommerce platform built from scratch with modern technologies. 
+Includes user authentication, shopping cart, dynamic product management, and a payment integration with Mercado Pago.
+
+Built with:
 - Next.js (App Router)
 - PostgreSQL (as the database)
 - Prisma (as the ORM)
 - Docker & Docker Compose (for environment setup)
 - Seed data for testing
 - MercadoPago integration for payments
+
+## 🚀 Features
+
+- 🔐 User authentication (register + login)
+- 🛒 Shopping cart with local state
+- 🛍️ Product listing and product detail pages
+- 💳 Payment integration via Mercado Pago
+- 🗃️ PostgreSQL database with Prisma ORM
+- 🐳 Docker environment for local dev
+- 🌐 Deployment on Vercel
+
 
 ### 🔄 How it works 
 
@@ -125,9 +143,43 @@ Prisma https://www.prisma.io/docs
 Docker Documentation
 PostgreSQL https://www.postgresql.org/docs/
 
-### Deployment
+## 🚀 Deployment
 
-You can deploy this project to Vercel easily.
+This project is deployed using **Vercel**, which makes it easy to host fullstack Next.js applications.
+
+### ✅ Steps followed for deployment:
+
+1. **Created a Vercel account** and connected the GitHub repository.
+
+2. **Configured environment variables** in the Vercel dashboard:
+   - `DATABASE_URL` (PostgreSQL)
+   - `NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY`
+   - `MERCADOPAGO_ACCESS_TOKEN`
+   - `MERCADOPAGO_BASE_URL`
+
+3. **Used Railway (or Supabase)** to host the PostgreSQL database externally, making it accessible to Vercel.
+
+4. **Ensured the seed script ran locally** before deploying:
+
+   npx prisma migrate deploy
+
+   npx prisma db seed
+
+Vercel builds the app automatically on every push to main, using:
+
+npm run build
+
+Production URL:
+👉 https://sport-ecommerce-58pi.vercel.app
+
+🧪 Test your deployment:
+🛍️ Visit the store and check products
+
+🧾 Create a user and log in
+
+🛒 Add products to the cart
+
+💳 Try going through the Mercado Pago flow (sandbox mode)
 
 ### Test
 

@@ -12,8 +12,8 @@ export default function Banner() {
       <div className={styles.contentContainer}>
          <div className={styles.contentLeft}>
             <p className={styles.BannerTitle}><span className={styles.highlight}>Q</span>uiero</p>
-            <p className={styles.BannerSubtitle} >Movete con <span className={styles.underline}>Estilo</span></p>
-            <p>Descubre ropa deportiva con la mejor calidad y precio.</p>
+            <p className={styles.BannerSubtitle} >Movete con <span className={styles.underline}>Energia</span></p>
+            <p>Estilo y confort para tu entrenamiento</p>
             <Link href="/shop" className={styles.shopButton}>
               Visitar Tienda <FiArrowUpRight className={styles.icon} />
             </Link>
@@ -21,13 +21,13 @@ export default function Banner() {
          </div>
          <div className={styles.contentRight}>
          <Image  
-              src='/assets/banner4.jpg'
+              src='/assets/brand.jpg'
               alt="Image Runner"
               fill
               priority
               style={{
                 objectFit: 'cover',
-                objectPosition: '85% center'
+                objectPosition: 'center 90%'
               }}
             />
               <div className={styles.imageOverlay}></div>

@@ -17,7 +17,7 @@
   }
 
   .contentLeft, .contentRight {
-    width: 50%;
+    width: 100%;
     height: 100%;
   }
 
@@ -25,10 +25,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 7rem;
+    align-items: center;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0;
     z-index: 3;
     
     .BannerTitle {
+      font-family: var(--font-poppins), sans-serif; 
+      margin: 0;
       font-size: 5.5rem;
       font-weight: 400;
       
@@ -39,8 +44,9 @@
 
     .BannerSubtitle {
       font-size: 2rem;
+      font-family: var(--font-poppins), sans-serif; 
       margin-bottom: 1.5rem;
-      color: var(--text-light);
+      color: var(--text-white);
       
       @media (max-width: 768px) {
         font-size: 1.5rem;
@@ -49,14 +55,14 @@
 
     p {
       font-size: 1.3rem;
+      font-family: var(--font-poppins), sans-serif; 
       margin-bottom: 1.5rem;
-      color: var(--text-light);
+      color: var(--text-white);
     }
 
     .highlight {
       color: var(--primary);
       font-size: 7rem;
-      padding-right: 0.1rem;
       
       @media (max-width: 768px) {
         font-size: 5rem;
@@ -65,12 +71,18 @@
   }
 
   .contentRight {
-    position: relative;
-    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  
     @media (max-width: 768px) {
       display: none;
     }
   }
+  
 }
 
 .underline  {
@@ -95,7 +107,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,     
+    rgba(0, 0, 0, 0.2) 20%,    
+    rgba(0, 0, 0, 0.6) 100%,    
+    transparent 100%          
+  );
   z-index: 1;
 }
 
@@ -110,15 +128,15 @@
   width: fit-content;
   max-width: 100%;
   color: rgb(238, 238, 238);
-  background-color: rgb(1, 109, 126, 0.8);
+  background-color: rgb(1, 109, 126);
   border:none;
   border-radius: 8px;
-  box-shadow: 0 6px 8px rgb(1, 109, 126, 0.6);
+  box-shadow: 0 6px 8px rgba(24, 24, 24, 0.6);
   cursor: pointer;
   transition: all 0.3s ease;
   
   &:hover {
-    background-color:rgb(1, 109, 126, 0.7);
+    background-color:rgb(2, 136, 156);
     box-shadow: 0 6px 8px rgba(32, 178, 200, 0.4);
   }
 
