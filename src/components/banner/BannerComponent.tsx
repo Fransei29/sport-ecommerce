@@ -27,7 +27,7 @@ export default function Banner() {
               priority
               style={{
                 objectFit: 'cover',
-                objectPosition: 'center 90%'
+                objectPosition: '30% center' 
               }}
             />
               <div className={styles.imageOverlay}></div>

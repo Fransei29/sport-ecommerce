@@ -1,6 +1,6 @@
 .footer {
-    background-color: #222;
-    color: #fff;
+    background-color: var(--dark);
+    color: var(--text);
     padding: 2rem 1rem;
     font-size: 0.9rem;
   
@@ -21,6 +21,7 @@
   
       h3 {
         font-size: 2rem;
+        font-weight: 400;
         color: var(--primary);
       }
   

@@ -33,12 +33,14 @@ export default function ShopComponent() {
 
   return (
     <main className={styles.shopContainer}>
-      <h1>Tienda</h1>
-      <div className={styles.productList}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <section className={styles.shopContent}>
+        <h1 className={styles.shopTitle}>Tienda</h1>
+        <div className={styles.productList}>
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

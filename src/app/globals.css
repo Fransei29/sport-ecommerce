@@ -12,12 +12,14 @@
   --secondary: rgb(255, 158, 2);
   --secondary-1: rgb(255, 158, 2, 0.7);
 
-  --text:rgb(70, 70, 70);
-  --text-light:rgb(87, 86, 86);
-  --text-white:rgb(231, 231, 231);
+  --dark:rgb(7, 13, 22);
 
-  --gray: #ebeaea;
-  --gray-1: #e6e6e6;
+  --text:rgb(211, 210, 210);
+  --text-light:rgb(87, 86, 86);
+  --text-white:#d0d5dd;
+
+  --gray: rgb(17, 21, 36);
+  --gray-1: rgb(27, 30, 39);
   --gray-2: #d3d3d3;
   --gray-4: #9c9c9c;
   --gray-5: #5e5e5e;

@@ -5,7 +5,8 @@ import styles from "./AboutUsComponent.module.scss";
 
 export default function AboutUsComponent() {
   return (
-    <section className={styles.aboutUs}>
+    <section className={styles.aboutUsContainer}>
+    <div className={styles.aboutUs}>
       <h2>Sobre Nosotros</h2>
       <div className={styles.content}>
         <div className={styles.textSection}>
@@ -17,6 +18,7 @@ export default function AboutUsComponent() {
           </p>
         </div>
       </div>
+    </div>
     </section>
   );
 }
